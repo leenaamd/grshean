@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 //import 'package:dropdown_button2/dropdown_button2.dart';
 import 'homePage.dart';
+import 'joinAssembly.dart';
 import 'loginPage.dart';
 //import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 // import 'package:intl/intl.dart';
 
-class createAssembly extends StatefulWidget {
-  const createAssembly({
+class filterPage extends StatefulWidget {
+  const filterPage({
     Key? key,
   }) : super(key: key);
   _createAssemblyState createState() => _createAssemblyState();
@@ -31,33 +32,33 @@ void clearForm() {
   PhoneNumController.text = '';
 }
 
-class _createAssemblyState extends State<createAssembly> {
+class _createAssemblyState extends State<filterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Color(0xFFFFFFFF),
-        foregroundColor: Colors.black87,
-        centerTitle: true,
-        title: Text(
-          'انشاء جمعية ',
-        ),
-        leading: //Icon(Icons.more_vert)
-            Text(''),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-            ),
-            onPressed: () {
-              clearForm();
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-        // elevation: 15,
-      ),
+      // appBar: AppBar(
+      //   elevation: 0.0,
+      //   backgroundColor: Color(0xFFFFFFFF),
+      //   foregroundColor: Colors.black87,
+      //   centerTitle: true,
+      //   title: Text(
+      //     'انشاء جمعية ',
+      //   ),
+      //   leading: //Icon(Icons.more_vert)
+      //       Text(''),
+      //   actions: [
+      //     IconButton(
+      //       icon: const Icon(
+      //         Icons.arrow_forward_ios,
+      //       ),
+      //       onPressed: () {
+      //         clearForm();
+      //         Navigator.of(context).pop();
+      //       },
+      //     ),
+      //   ],
+      //   // elevation: 15,
+      // ),
       body: assemblyForm(),
     );
   }
@@ -176,92 +177,7 @@ class assemblyFormState extends State<assemblyForm> {
             height: 20,
           ),
           //
-          Text(
-            "الاسم ",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            textAlign: TextAlign.right,
-          ),
 
-          Container(
-              padding: const EdgeInsets.fromLTRB(6, 12, 6, 12),
-              child: TextFormField(
-                // maxLength: 20,
-                textAlign: TextAlign.right,
-                controller: nameController,
-                decoration: InputDecoration(
-                  hintText: 'جمعية ادخار',
-                  contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: const BorderSide(color: Colors.grey)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: BorderSide(color: Colors.grey.shade400)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                ),
-                validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      (value.trim()).isEmpty) {
-                    return 'الرجاء ادخال اسم الجمعية';
-                  }
-                  return null;
-                },
-              )),
-          Text(
-            "  الوصف",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            textAlign: TextAlign.right,
-          ),
-
-          Container(
-              padding: const EdgeInsets.fromLTRB(6, 12, 6, 12),
-              child: TextFormField(
-                // maxLength: 20,
-                textAlign: TextAlign.right,
-                controller: descController,
-                decoration: InputDecoration(
-                  hintText: ' ...هذه الجمعية لغرض',
-                  contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: const BorderSide(color: Colors.grey)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: BorderSide(color: Colors.grey.shade400)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                ),
-                validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      (value.trim()).isEmpty) {
-                    return 'الرجاء ادخال وصف الجمعية';
-                  }
-                  return null;
-                },
-              )),
           //السعر
           Text(
             "السعر",
@@ -320,32 +236,6 @@ class assemblyFormState extends State<assemblyForm> {
                   return null;
                 },
               )),
-          // Center(
-          //   child: DropdownButton<String>(
-          //     value: dropdownValue,
-          //     icon: const Icon(Icons.payments),
-          //     elevation: 16,
-          //     style: const TextStyle(color: Color.fromRGBO(76, 121, 74, 1)),
-          //     underline: Container(
-          //       height: 2,
-          //       color: Color.fromRGBO(76, 121, 74, 1),
-          //     ),
-          //     onChanged: (String? value) {
-          //       // This is called when the user selects an item.
-          //       setState(() {
-          //         dropdownValue = value!;
-          //       });
-          //     },
-          //     items: prices.map<DropdownMenuItem<String>>((String value) {
-          //       return DropdownMenuItem<String>(
-          //         value: value,
-          //         child: Text(value),
-          //       );
-          //     }).toList(),
-          //   ),
-          // ),
-          //المدة
-          //الاشخاص
 
           Text(
             "تاريخ البدء",
@@ -520,92 +410,7 @@ class assemblyFormState extends State<assemblyForm> {
                   return null;
                 },
               )),
-          Text(
-            "الافراد",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            textAlign: TextAlign.right,
-          ),
 
-          Container(
-              padding: const EdgeInsets.fromLTRB(6, 12, 6, 12),
-              child: TextFormField(
-                // maxLength: 20,
-                textAlign: TextAlign.right,
-                controller: personController,
-                decoration: InputDecoration(
-                  hintText: 'الاسم',
-                  contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: const BorderSide(color: Colors.grey)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: BorderSide(color: Colors.grey.shade400)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                ),
-                validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      (value.trim()).isEmpty) {
-                    return 'الرجاء ادخال اسم الفرد';
-                  }
-                  return null;
-                },
-              )),
-
-          Container(
-              padding: const EdgeInsets.fromLTRB(6, 12, 6, 12),
-              child: TextFormField(
-                // maxLength: 20,
-                textAlign: TextAlign.right,
-                controller: PhoneNumController,
-                decoration: InputDecoration(
-                  hintText: 'رقم الجوال',
-                  contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: const BorderSide(color: Colors.grey)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide: BorderSide(color: Colors.grey.shade400)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100.0),
-                      borderSide:
-                          const BorderSide(color: Colors.red, width: 2.0)),
-                  prefixIcon: IconButton(
-                    icon: Icon(
-                      Icons.phone_android,
-                      color: Color.fromRGBO(76, 121, 74, 1),
-                    ),
-                    onPressed: () {
-                      // Update the state i.e. toogle the state of passwordVisible variable
-                    },
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      (value.trim()).isEmpty) {
-                    return 'الرجاء ادخال رقم الجوال';
-                  }
-                  return null;
-                },
-              )),
           //button
           Container(
               child: ElevatedButton(
@@ -614,16 +419,11 @@ class assemblyFormState extends State<assemblyForm> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => homePage(),
+                      builder: (context) => ListViewjoin(),
                     ));
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                      content: Text('تم انشاء الجمعية بنجاح'),
-                      backgroundColor: Colors.green),
-                );
               }
             },
-            child: Text('انشاء الجمعية'),
+            child: Text(' تصفية'),
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),

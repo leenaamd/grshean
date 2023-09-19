@@ -414,7 +414,7 @@ class _homePageState extends State<homePage> {
                 ),
                 title: RichText(
                   text: TextSpan(
-                      text: 'x.com', recognizer: new TapGestureRecognizer()
+                      text: '@grshaen', recognizer: new TapGestureRecognizer()
                       // ..onTap = () {
                       //   launch(
                       //       'https://docs.flutter.io/flutter/services/UrlLauncher-class.html');
@@ -444,8 +444,7 @@ class _homePageState extends State<homePage> {
                 ),
                 title: RichText(
                   text: TextSpan(
-                      text: 'instagram.com',
-                      recognizer: new TapGestureRecognizer()
+                      text: '@grshaen', recognizer: new TapGestureRecognizer()
                       // ..onTap = () {
                       //   launch(
                       //       'https://docs.flutter.io/flutter/services/UrlLauncher-class.html');

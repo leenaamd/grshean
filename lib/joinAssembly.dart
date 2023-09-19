@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'assimblyItem.dart';
+import 'filterPage.dart';
 
 // Define a data class for the image data
 class ImageData {
@@ -60,7 +61,13 @@ class ListViewjoin extends StatelessWidget {
           ),
           leading: IconButton(
             icon: Icon(Icons.filter_alt),
-            onPressed: (() {}),
+            onPressed: (() {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => filterPage(),
+                  ));
+            }),
           ),
           actions: [
             IconButton(
